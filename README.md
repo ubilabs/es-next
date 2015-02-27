@@ -4,7 +4,43 @@ ES.next examples for better understanding.
 
 ## Arrow functions
 
+`(x, y) => {}` is a shorter form for `function (x, y) {}`. But the big difference is that the `this` in the function body is what you most likely expect it to be: that of the outer scope.
+
+So for example, this won’t log the name:
+
+```js
+this.name = 'Peter';
+…
+setTimeout(function(){
+  console.log(this.name);
+}, 1000);
+```
+
+But with the usage of the ES.next arrows, this will work:
+
+```js
+this.name = 'Peter';
+…
+setTimeout(() => {
+  console.log(this.name);
+}, 1000);
+```
+
 ### Examples
+
+```js
+var odds = evens.map(v => v + 1);
+var nums = evens.map((v, i) => v + i);
+```
+
+```js
+// Statement bodies
+nums.forEach(v => {
+  if (v % 5 === 0) {
+    fives.push(v);
+  }
+});
+```
 
 ## Classes
 
