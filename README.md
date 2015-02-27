@@ -44,6 +44,40 @@ nums.forEach(v => {
 
 ## Classes
 
+The new `class` in ES.Next offers nice syntax sugar to get started with classes way easier:
+
+```js
+class First {
+  constructor(){
+    age = 42;
+  }
+  isItTheAnswer(){
+    return this.age === '42';
+  }
+}
+```
+
+Classes can `extend` other classes and call their `super` functions. Also, there are getters and setters:
+
+```js
+class Second extends First {
+  constructor(){
+    super();
+  }
+  get age() {
+    return this.age;
+  }
+  set age(value) {
+    if (value < 0) {
+      throw new Error('Age must be non-negative.')
+    }
+    this.age = value
+  }
+}
+```
+
+Classes can have static members. Like other languages with static class members, the static keyword will create a method associated with the class, and not with an instance of the class. In other words, you can only reach a static method using the name of the class. Static methods have no access to the fields, properties, and methods defined on an instance of the class using this.
+
 ### Examples
 
 ## Enhanced Object Literals
