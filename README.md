@@ -56,7 +56,45 @@ ES.next examples for better understanding.
 
 ## Modules
 
+ES.next introduces module support to prevent filling up the global scope. The syntax is a bit different than the NPM module syntax.
+
+When exporting a `default`, it can be imported via giving some name on import:
+
+```js
+// header.js
+export default function header(){}
+
+// app.js
+import header from ‘header’;
+```
+
+But when importing named exports, they have to defined via `{ }`:
+
+```js
+// header.js
+export function header(){}
+
+// app.js
+import { header } from ‘header’;
+```
+
 ### Examples
+
+```js
+// lib/math.js
+export var pi = 3.141593;
+
+// lib/mathplusplus.js
+export * from "lib/math";
+export var e = 2.71828182846;
+export default function(x) {
+    return Math.exp(x);
+}
+
+// app.js
+import exp, {pi, e} from "lib/mathplusplus";
+alert("2π = " + exp(pi, e));
+```
 
 ## Module Loaders
 
