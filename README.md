@@ -27,7 +27,7 @@ ES.next examples for better understanding.
 - [Reflect API](#Reflect-API)
 - [Tail Calls](#Tail-Calls)
 
-## <a name="Arrow-Functions">Arrow Functions</a>
+<h2 name="Arrow-Functions">Arrow Functions</h2>
 
 `(x, y) => {}` is a shorter form for `function (x, y) {}`. But the big difference is that the `this` in the function body is what you most likely expect it to be: that of the outer scope.
 
@@ -67,7 +67,7 @@ nums.forEach(v => {
 });
 ```
 
-## <a name="Classes">Classes</a>
+<h2 name="Classes">Classes</h2>
 
 The new `class` in ES.Next offers nice syntax sugar to get started with classes way easier:
 
@@ -105,11 +105,11 @@ Classes can have static members. Like other languages with static class members,
 
 ### Examples
 
-## <a name="Enhanced-Object-Literals">Enhanced Object Literals</a>
+<h2 name="Enhanced-Object-Literals">Enhanced Object Literals</h2>
 
 ### Examples
 
-## <a name="Template-Strings">Template Strings</a>
+<h2 name="Template-Strings">Template Strings</h2>
 
 As there is no *sprintf* or something similar, composing strings in ES5 is a bit painful:
 
@@ -157,7 +157,7 @@ GET`http://foo.org/bar?a=${a}&b=${b}
       "bar": ${bar}}`(myOnReadyStateChangeHandler);
 ```
 
-## <a name="Default">Default</a>
+<h2 name="Default">Default</h2>
 
 Often a parameter in a function has to be defined. To catch not defined parameters, a check is the first thing that happens in a function:
 
@@ -186,7 +186,7 @@ function add(x, y = 12) {
 console.log(add(3)); // logs: 15
 ```
 
-## <a name="Destructuring">Destructuring</a>
+<h2 name="Destructuring">Destructuring</h2>
 
 When passing a lot of data to a function it is often done via an `options` object:
 
@@ -247,35 +247,35 @@ var [a = 1] = [];
 console.log(a); // logs: 1
 ```
 
-## <a name="Rest">Rest</a>
+<h2 name="Rest">Rest</h2>
 
 ### Examples
 
-## <a name="Spread">Spread</a>
+<h2 name="Spread">Spread</h2>
 
 ### Examples
 
-## <a name="Let-Const">Let + Const</a>
+<h2 name="Let-Const">Let + Const</h2>
 
 ### Examples
 
-## <a name="Iterators-For-Of">Iterators + For..Of</a>
+<h2 name="Iterators-For-Of">Iterators + For..Of</h2>
 
 ### Examples
 
-## <a name="Generators">Generators</a>
+<h2 name="Generators">Generators</h2>
 
 ### Examples
 
-## <a name="Comprehensions">Comprehensions</a>
+<h2 name="Comprehensions">Comprehensions</h2>
 
 ### Examples
 
-## <a name="Unicode">Unicode</a>
+<h2 name="Unicode">Unicode</h2>
 
 ### Examples
 
-## <a name="Modules">Modules</a>
+<h2 name="Modules">Modules</h2>
 
 ES.next introduces module support to prevent filling up the global scope. The syntax is a bit different than the NPM module syntax.
 
@@ -317,42 +317,42 @@ import exp, {pi, e} from "lib/mathplusplus";
 alert("2π = " + exp(pi, e));
 ```
 
-## <a name="Module-Loaders">Module Loaders</a>
+<h2 name="Module-Loaders">Module Loaders</h2>
 
 ### Examples
 
-## <a name="Map-Set-WeakMap-WeakSet">Map + Set + WeakMap + WeakSet</a>
+<h2 name="Map-Set-WeakMap-WeakSet">Map + Set + WeakMap + WeakSet</h2>
 
 ### Examples
 
-## <a name="Proxies">Proxies</a>
+<h2 name="Proxies">Proxies</h2>
 
 ### Examples
 
-## <a name="Symbols">Symbols</a>
+<h2 name="Symbols">Symbols</h2>
 
 ### Examples
 
-## <a name="Subclassable-Built-ins">Subclassable Built-ins</a>
+<h2 name="Subclassable-Built-ins">Subclassable Built-ins</h2>
 
 ### Examples
 
-## <a name="Math-Number-String-Object-APIs">Math + Number + String + Object APIs</a>
+<h2 name="Math-Number-String-Object-APIs">Math + Number + String + Object APIs</h2>
 
 ### Examples
 
-## <a name="Binary-and-Octal-Literals">Binary and Octal Literals</a>
+<h2 name="Binary-and-Octal-Literals">Binary and Octal Literals</h2>
 
 ### Examples
 
-## <a name="Promises">Promises</a>
+<h2 name="Promises">Promises</h2>
 
 ### Examples
 
-## <a name="Reflect API">Reflect-API</a>
+<h2 name="Reflect API">Reflect-API</h2>
 
 ### Examples
 
-## <a name="Tail Calls">Tail-Calls</a>
+<h2 name="Tail Calls">Tail-Calls</h2>
 
 ### Examples
