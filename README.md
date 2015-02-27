@@ -52,7 +52,51 @@ nums.forEach(v => {
 
 ## Template Strings
 
+As there is no *sprintf* or something similar, composing strings in ES5 is a bit painful:
+
+```js
+var name = 'Peter Griffin',
+  greeting = 'Hello ' + name + '! We welcome you to ' +
+    'the next season.';
+```
+
+In ES6, template strings got introduced which allow the usage of variables available in the scope and support strings on multiple lines:
+
+```js
+var name = 'Peter Griffin',
+  greeting = `
+    Hello ${name}!
+    We welcome you to the next season.
+  `;
+```
+
 ### Examples
+
+```js
+// Basic literal string creation
+`In JavaScript "\n" is a line-feed.`
+```
+
+```js
+// Multiline strings
+`In JavaScript this is
+ not legal.`
+```
+
+```js
+// Interpolate variable bindings
+var name = "Bob", time = "today";
+`Hello ${name}, how are you ${time}?`
+```
+
+```js
+// Construct an HTTP request prefix is used to interpret the replacements and construction
+GET`http://foo.org/bar?a=${a}&b=${b}
+    Content-Type: application/json
+    X-Credentials: ${credentials}
+    { "foo": ${foo},
+      "bar": ${bar}}`(myOnReadyStateChangeHandler);
+```
 
 ## Default
 
