@@ -2,7 +2,32 @@
 
 ES.next examples for better understanding.
 
-## Arrow functions
+- [Arrow Functions](#Arrow-Functions)
+- [Classes](#Classes)
+- [Enhanced Object Literals](#Enhanced-Object-Literals)
+- [Template Strings](#Template-Strings)
+- [Destructuring](#Destructuring)
+- [Default](#Default)
+- [Rest](#Rest)
+- [Spread](#Spread)
+- [Let + Const](#Let-Const)
+- [Iterators + For..Of](#Iterators-For-Of)
+- [Generators](#Generators)
+- [Comprehensions](#Comprehensions)
+- [Unicode](#Unicode)
+- [Modules](#Modules)
+- [Module Loaders](#Module-Loaders)
+- [Map + Set + WeakMap + WeakSet](#Map-Set-WeakMap-WeakSet)
+- [Proxies](#Proxies)
+- [Symbols](#Symbols)
+- [Subclassable Built-ins](#Subclassable-Built-ins)
+- [Math + Number + String + Object APIs](#Math-Number-String-Object-APIs)
+- [Binary and Octal Literals](#Binary-and-Octal-Literals)
+- [Promises](#Promises)
+- [Reflect API](#Reflect-API)
+- [Tail Calls](#Tail-Calls)
+
+## <a name="Arrow-Functions">Arrow Functions</a>
 
 `(x, y) => {}` is a shorter form for `function (x, y) {}`. But the big difference is that the `this` in the function body is what you most likely expect it to be: that of the outer scope.
 
@@ -42,7 +67,7 @@ nums.forEach(v => {
 });
 ```
 
-## Classes
+## <a name="Classes">Classes</a>
 
 The new `class` in ES.Next offers nice syntax sugar to get started with classes way easier:
 
@@ -80,11 +105,11 @@ Classes can have static members. Like other languages with static class members,
 
 ### Examples
 
-## Enhanced Object Literals
+## <a name="Enhanced-Object-Literals">Enhanced Object Literals</a>
 
 ### Examples
 
-## Template Strings
+## <a name="Template-Strings">Template Strings</a>
 
 As there is no *sprintf* or something similar, composing strings in ES5 is a bit painful:
 
@@ -132,9 +157,9 @@ GET`http://foo.org/bar?a=${a}&b=${b}
       "bar": ${bar}}`(myOnReadyStateChangeHandler);
 ```
 
-## Default
+## <a name="Default">Default</a>
 
-Often a parameter in a function has to be defined. To catch not defined parameters, a check is the first thing that happens in a function: 
+Often a parameter in a function has to be defined. To catch not defined parameters, a check is the first thing that happens in a function:
 
 ```js
 function ajax(url) {
@@ -161,7 +186,7 @@ function add(x, y = 12) {
 console.log(add(3)); // logs: 15
 ```
 
-## Destructuring
+## <a name="Destructuring">Destructuring</a>
 
 When passing a lot of data to a function it is often done via an `options` object:
 
@@ -222,35 +247,35 @@ var [a = 1] = [];
 console.log(a); // logs: 1
 ```
 
-## Rest
+## <a name="Rest">Rest</a>
 
 ### Examples
 
-## Spread
+## <a name="Spread">Spread</a>
 
 ### Examples
 
-## Let + Const
+## <a name="Let-Const">Let + Const</a>
 
 ### Examples
 
-## Iterators + For..Of
+## <a name="Iterators-For-Of">Iterators + For..Of</a>
 
 ### Examples
 
-## Generators
+## <a name="Generators">Generators</a>
 
 ### Examples
 
-## Comprehensions
+## <a name="Comprehensions">Comprehensions</a>
 
 ### Examples
 
-## Unicode
+## <a name="Unicode">Unicode</a>
 
 ### Examples
 
-## Modules
+## <a name="Modules">Modules</a>
 
 ES.next introduces module support to prevent filling up the global scope. The syntax is a bit different than the NPM module syntax.
 
@@ -292,42 +317,42 @@ import exp, {pi, e} from "lib/mathplusplus";
 alert("2π = " + exp(pi, e));
 ```
 
-## Module Loaders
+## <a name="Module-Loaders">Module Loaders</a>
 
 ### Examples
 
-## Map + Set + WeakMap + WeakSet
+## <a name="Map-Set-WeakMap-WeakSet">Map + Set + WeakMap + WeakSet</a>
 
 ### Examples
 
-## Proxies
+## <a name="Proxies">Proxies</a>
 
 ### Examples
 
-## Symbols
+## <a name="Symbols">Symbols</a>
 
 ### Examples
 
-## Subclassable Built-ins
+## <a name="Subclassable-Built-ins">Subclassable Built-ins</a>
 
 ### Examples
 
-## Math + Number + String + Object APIs
+## <a name="Math-Number-String-Object-APIs">Math + Number + String + Object APIs</a>
 
 ### Examples
 
-## Binary and Octal Literals
+## <a name="Binary-and-Octal-Literals">Binary and Octal Literals</a>
 
 ### Examples
 
-## Promises
+## <a name="Promises">Promises</a>
 
 ### Examples
 
-## Reflect API
+## <a name="Reflect API">Reflect-API</a>
 
 ### Examples
 
-## Tail Calls
+## <a name="Tail Calls">Tail-Calls</a>
 
 ### Examples
