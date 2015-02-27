@@ -20,7 +20,32 @@ ES.next examples for better understanding.
 
 ## Default
 
+Often a parameter in a function has to be defined. To catch not defined parameters, a check is the first thing that happens in a function: 
+
+```js
+function ajax(url) {
+  url = url || 'http://duckduckgo.com';
+}
+ajax();
+```
+
+In ES.next, it is possible, to define defaults for parameters, so that check is unnecessary:
+
+```js
+function ajax(url = 'http://duckduckgo.com') {
+  console.log(url); // logs: 'http://duckduckgo.com'
+}
+ajax();
+```
+
 ### Examples
+
+```js
+function add(x, y = 12) {
+  return x + y;
+}
+console.log(add(3)); // logs: 15
+```
 
 ## Destructuring
 
