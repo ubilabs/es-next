@@ -18,13 +18,70 @@ ES.next examples for better understanding.
 
 ### Examples
 
-## Destructuring
-
-### Examples
-
 ## Default
 
 ### Examples
+
+## Destructuring
+
+When passing a lot of data to a function it is often done via an `options` object:
+
+```js
+ajax(‘/todo’, {
+  method: ‘POST’,
+  body: 'Some content')
+});
+```
+Then, to acces these params in ES5, one would assign them manually:
+
+```js
+function ajax(url, options) {
+  options = options || {};
+
+  var body = options.body || '',
+    method = options.method || 'GET';
+}
+```
+In ES.next, we can define these directly:
+
+```js
+function ajax(url, {body='', method='GET'}) {
+  console.log(method);
+}
+```
+
+This can also be used in assignments:
+
+```js
+var [a, , b] = [1,2,3];
+console.log(a, b); // logs: 1, 3
+```
+
+### Examples
+
+```js
+function getData() {
+  return {
+    name: 'Peter',
+    age: 34,
+    location: {
+      city: 'Hamburg',
+      country: 'Germany'
+    }
+  }
+}
+var {age, name, location: { city }} = getData();
+console.log(age, name, city); // logs: 34, 'Peter', 'Hamburg'
+```
+
+```js
+var [a] = [];
+console.log(a); // logs: undefined;
+
+// Using a default:
+var [a = 1] = [];
+console.log(a); // logs: 1
+```
 
 ## Rest
 
