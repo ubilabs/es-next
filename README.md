@@ -74,7 +74,7 @@ The new `class` in ES.Next offers nice syntax sugar to get started with classes 
 ```js
 class First {
   constructor(){
-    age = 42;
+    this.age = 42;
   }
   isItTheAnswer(){
     return this.age === '42';
