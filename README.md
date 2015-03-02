@@ -121,13 +121,14 @@ Also, there are getters and setters:
 ```js
 class Pirate {
   get age() {
-    return this.age;
+    var uncertainty = Math.random() * 10; // you'll never know
+    return this.realAge + Math.round(uncertainty);
   }
   set age(value) {
     if (value < 0) {
       throw new Error('Age must be non-negative.')
     }
-    this.age = value
+    this.realAge = value;
   }
 }
 
