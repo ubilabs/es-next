@@ -331,7 +331,7 @@ function ajax(url, {body='', method='GET'}) {
 This can also be used in assignments:
 
 ```js
-var [a, , b] = [1,2,3];
+var [a, , b] = [1, 2, 3];
 console.log(a, b); // logs: 1, 3
 ```
 
@@ -340,16 +340,16 @@ console.log(a, b); // logs: 1, 3
 ```js
 function getData() {
   return {
-    name: 'Peter',
-    age: 34,
+    name: 'Jack',
+    age: 33,
     location: {
-      city: 'Hamburg',
-      country: 'Germany'
+      region: 'Bermuda',
+      island: 'Isle of Devils'
     }
   }
 }
-var {age, name, location: { city }} = getData();
-console.log(age, name, city); // logs: 34, 'Peter', 'Hamburg'
+var {age, name, location: { region }} = getData();
+console.log(age, name, region); // logs: 33, 'Jack', 'Bermuda'
 ```
 
 ```js
