@@ -184,10 +184,9 @@ var name = 'Peter Griffin',
 In ES6, template strings got introduced which allow the usage of variables available in the scope and support strings on multiple lines:
 
 ```js
-var name = 'Peter Griffin',
-  greeting = `
-    Hello ${name}!
-    We welcome you to the next season.
+var name = 'Jack',
+  greeting = `Ahoy ${name},
+    welcome on board!
   `;
 ```
 
@@ -200,14 +199,16 @@ var name = 'Peter Griffin',
 
 ```js
 // Multiline strings
-`In JavaScript this is
- not legal.`
+`In old school JavaScript this was
+not valid but works in ES6. Make
+sure to use backticks instead of
+single or double quotes. Yarr!`
 ```
 
 ```js
 // Interpolate variable bindings
-var name = "Bob", time = "today";
-`Hello ${name}, how are you ${time}?`
+var name = "Jack", drink = "grog";
+`${name} wants another ${dring}!`
 ```
 
 ```js
@@ -218,6 +219,8 @@ GET`http://foo.org/bar?a=${a}&b=${b}
     { "foo": ${foo},
       "bar": ${bar}}`(myOnReadyStateChangeHandler);
 ```
+
+([Run examples above](http://jsbin.com/faqeci/edit))
 
 <h2 name="Default">Default</h2>
 
