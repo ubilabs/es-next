@@ -139,29 +139,37 @@ jack.isDrunk(); // returns false
 Also, there are getters and setters:
 
 ```js
-class Pirate {
-  constructor(name){
-    this.age = 0;
+class Treasure {
+  constructor(){
+    this.coins = 0;
   }
-  get age() {
-    var uncertainty = Math.random() * 10; // you'll never know
-    return this.realAge + Math.round(uncertainty);
+  get weight() {
+    return this.coins * 50;
   }
-  set age(value) {
-    if (value < 0) {
-      throw new Error('Age must be non-negative.')
+  set weight(value) {
+    if (value <= 0) {
+      throw new Error('Avast: weight must be greater than 0!!')
     }
-    this.realAge = value;
+    this.coins = value / 50;
   }
 }
 
-jack = new Pirate();
+var treasure = new Treasure();
+console.log(treasure.coins, treasure.weight); // 0, 0
 
-jack.age = 33;
-jack.age = -10; // throws an error
+treasure.coins = 10;
+console.log(treasure.weight); // 500 gramm
+
+treasure.coins++;
+console.log(treasure.weight); // 550 gramm
+
+treasure.weight = 2000;
+console.log(treasure.coins); // 40 coins
+
+treasure.weight = -77; // throws an error
 ```
 
-([Run code above](http://jsbin.com/faqeci/edit?js,console))
+([Run code above](http://jsbin.com/qusafi/edit?js,console))
 
 Classes can have static members. Like other languages with static class members, the static keyword will create a method associated with the class, and not with an instance of the class. In other words, you can only reach a static method using the name of the class. Static methods have no access to the fields, properties, and methods defined on an instance of the class using this.
 
