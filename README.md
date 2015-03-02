@@ -184,12 +184,11 @@ Classes can have static members. Like other languages with static class members,
 As there is no *sprintf* or something similar, composing strings in ES5 is a bit painful:
 
 ```js
-var name = 'Peter Griffin',
-  greeting = 'Hello ' + name + '! We welcome you to ' +
-    'the next season.';
+var name = 'Jack',
+  greeting = 'Ahoy ' + name + ', welcome on board';
 ```
 
-In ES6, template strings got introduced which allow the usage of variables available in the scope and support strings on multiple lines:
+In ES6, template strings got introduced which allow the usage of template variables (`${variable}`) available in the scope and support strings on multiple lines:
 
 ```js
 var name = 'Jack',
@@ -207,25 +206,34 @@ var name = 'Jack',
 
 ```js
 // Multiline strings
-`In old school JavaScript this was
-not valid but works in ES6. Make
-sure to use backticks instead of
-single or double quotes. Yarr!`
+`In old school JavaScript (ES5) this
+was not valid but works in ES6.
+Make sure to use backticks
+instead of single or double quotes.
+
+Yarr!`
 ```
 
 ```js
 // Interpolate variable bindings
-var name = "Jack", drink = "grog";
-`${name} wants another ${dring}!`
+var name = "Jack",
+ drink = "grog",
+ message = `${name} wants another ${drink}!`
 ```
 
 ```js
-// Construct an HTTP request prefix is used to interpret the replacements and construction
-GET`http://foo.org/bar?a=${a}&b=${b}
-    Content-Type: application/json
-    X-Credentials: ${credentials}
-    { "foo": ${foo},
-      "bar": ${bar}}`(myOnReadyStateChangeHandler);
+class Pirate {
+  constructor(name){
+    this.name = name;
+  }
+  yell(){
+    console.log(`I am ${this.name}!`);
+  }
+}
+
+var jack = new Pirate('Bill');
+jack.yell();
+
 ```
 
 ([Run examples above](http://jsbin.com/faqeci/edit))
