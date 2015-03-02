@@ -69,37 +69,99 @@ nums.forEach(v => {
 
 <h2 name="Classes">Classes</h2>
 
-The new `class` in ES.Next offers nice syntax sugar to get started with classes way easier:
+The new `class` in ES.Next offers nice syntax sugar to get started with classes way easier.
 
 ```js
-class First {
-  constructor(){
-    this.age = 42;
+class Pirate {
+  constructor(name){
+    this.name = name;
+    this.grogs = 0;
   }
-  isItTheAnswer(){
-    return this.age === '42';
+  drink(){
+    this.grogs++;
+  }
+  isDrunk(){
+    return this.grogs > 10;
   }
 }
+
+var bill = new Pirate('Bill');
+bill.isDrunk(); // returns false
 ```
 
-Classes can `extend` other classes and call their `super` functions. Also, there are getters and setters:
+([Run code above](http://jsbin.com/lutalabalu/edit?js,console))
+
+### Extend classes
+
+Classes can `extend` other classes and call their `super` functions.
 
 ```js
-class Second extends First {
-  constructor(){
-    super();
+class Pirate {
+  constructor(name){
+    this.name = name;
+    this.grogs = 0;
+  }
+  drink(){
+    this.grogs++;
+  }
+  isDrunk(){
+    return this.grogs > 10;
+  }
+}
+
+class Captain extends Pirate {
+  constructor(name){
+    super(name);
+  }
+  isDrunk(){
+    return this.grogs > 50;
+  }
+}
+
+var bill = new Pirate('Bill'),
+  jack = new Captain('Jack'),
+  rounds = 20;
+
+while (rounds--) {
+  bill.drink();
+  jack.drink();
+}
+
+bill.isDrunk(); // returns true
+jack.isDrunk(); // returns false
+
+```
+
+([Run code above](http://jsbin.com/xerefo/edit?js,console))
+
+### Getter and Setters
+
+Also, there are getters and setters:
+
+```js
+class Pirate {
+  constructor(name){
+    this.age = 0;
   }
   get age() {
-    return this.age;
+    var uncertainty = Math.random() * 10; // you'll never know
+    return this.realAge + Math.round(uncertainty);
   }
   set age(value) {
     if (value < 0) {
       throw new Error('Age must be non-negative.')
     }
-    this.age = value
+    this.realAge = value;
   }
 }
+
+jack = new Pirate();
+
+jack.age = 33;
+jack.age = -10; // throws an error
 ```
+
+([Run code above](http://jsbin.com/faqeci/edit?js,console))
 
 Classes can have static members. Like other languages with static class members, the static keyword will create a method associated with the class, and not with an instance of the class. In other words, you can only reach a static method using the name of the class. Static methods have no access to the fields, properties, and methods defined on an instance of the class using this.
 
