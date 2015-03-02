@@ -87,7 +87,7 @@ var odds = numbers.filter(v => v % 2); // [1, 3, 5, 7, 9]
 var evens = odds.map(v => v + 1);      // [2, 4, 6, 8, 10]
 ```
 
-// Statement body needs braces, must use `return` explicitly if not void:
+Statement body needs braces, must use `return` explicitly if not void:
 
 ```js
 // Statement bodies
@@ -267,7 +267,7 @@ jack.yell();
 
 ```
 
-([Run examples above](http://jsbin.com/faqeci/edit))
+([Run examples above](http://jsbin.com/faqeci/edit?js,console))
 
 <h2 name="Default">Default</h2>
 
@@ -292,7 +292,7 @@ yell(); // "ARRR!"
 yell('Avast'); // AVAST!
 ```
 
-([Run example above](http://jsbin.com/wuvoso/edit))
+([Run example above](http://jsbin.com/wuvoso/edit?js,console))
 
 <h2 name="Destructuring">Destructuring</h2>
 
