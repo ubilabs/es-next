@@ -140,6 +140,9 @@ Also, there are getters and setters:
 
 ```js
 class Pirate {
+  constructor(name){
+    this.age = 0;
+  }
   get age() {
     var uncertainty = Math.random() * 10; // you'll never know
     return this.realAge + Math.round(uncertainty);
@@ -151,6 +154,8 @@ class Pirate {
     this.realAge = value;
   }
 }
+
+jack = new Pirate();
 
 jack.age = 33;
 jack.age = -10; // throws an error
