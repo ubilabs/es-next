@@ -129,7 +129,6 @@ while (rounds--) {
 
 bill.isDrunk(); // returns true
 jack.isDrunk(); // returns false
-
 ```
 
 ([Run code above](http://jsbin.com/xerefo/edit?js,console))
@@ -243,29 +242,25 @@ jack.yell();
 Often a parameter in a function has to be defined. To catch not defined parameters, a check is the first thing that happens in a function:
 
 ```js
-function ajax(url) {
-  url = url || 'http://duckduckgo.com';
+function yell(message) {
+  message = message || 'Arrr';
+  console.log(message.toUpperCase() + '!');
 }
-ajax();
+yell();
 ```
 
 In ES.next, it is possible, to define defaults for parameters, so that check is unnecessary:
 
 ```js
-function ajax(url = 'http://duckduckgo.com') {
-  console.log(url); // logs: 'http://duckduckgo.com'
+function yell(message = 'Arrr') {
+  console.log(message.toUpperCase() + '!');
 }
-ajax();
+
+yell(); // "ARRR!"
+yell('Avast'); // AVAST!
 ```
 
-### Examples
-
-```js
-function add(x, y = 12) {
-  return x + y;
-}
-console.log(add(3)); // logs: 15
-```
+([Run example above](http://jsbin.com/wuvoso/edit))
 
 <h2 name="Destructuring">Destructuring</h2>
 
