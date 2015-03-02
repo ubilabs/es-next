@@ -93,6 +93,19 @@ bill.isDrunk(); // returns false
 Classes can `extend` other classes and call their `super` functions.
 
 ```js
+class Pirate {
+  constructor(name){
+    this.name = name;
+    this.grogs = 0;
+  }
+  drink(){
+    this.grogs++;
+  }
+  isDrunk(){
+    return this.grogs > 10;
+  }
+}
+
 class Captain extends Pirate {
   constructor(name){
     super(name);
@@ -106,7 +119,7 @@ var bill = new Pirate('Bill'),
   jack = new Captain('Jack'),
   rounds = 20;
 
-while (rounds) {
+while (rounds--) {
   bill.drink();
   jack.drink();
 }
