@@ -34,38 +34,70 @@ ES.next examples for better understanding.
 So for example, this won’t log the name:
 
 ```js
-this.name = 'Peter';
+this.name = 'Jack';
 …
 setTimeout(function(){
   console.log(this.name);
-}, 1000);
+}, 100);
 ```
 
 But with the usage of the ES.next arrows, this will work:
 
 ```js
-this.name = 'Peter';
+this.name = 'Jack';
 …
 setTimeout(() => {
   console.log(this.name);
-}, 1000);
+}, 200);
+```
+
+
+A single expression, however, requires no braces:
+
+```js
+setTimeout(() => console.log(this.name), 300);
+```
+
+Single parameter case needs no parentheses around parameter list.
+
+```js
+let yell = x => x.toUpperCase();
+yell("Avast"); // AVAST
+```
+
+### Short forms
+
+The following functions all do the same.
+
+```js
+function(x)    { return x * x; };  // old school
+        (x) => { return x * x; };  // ES6 arrow function
+         x  => { return x * x; };  // skip parentheses for single args
+         x  =>          x * x;     // skip {return …} for simple calls
 ```
 
 ### Examples
 
 ```js
-var odds = evens.map(v => v + 1);
-var nums = evens.map((v, i) => v + i);
+
+var numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+
+var index = numbers.map((v, i) => i);  // [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+var odds = numbers.filter(v => v % 2); // [1, 3, 5, 7, 9]
+var evens = odds.map(v => v + 1);      // [2, 4, 6, 8, 10]
 ```
+
+// Statement body needs braces, must use `return` explicitly if not void:
 
 ```js
 // Statement bodies
-nums.forEach(v => {
-  if (v % 5 === 0) {
-    fives.push(v);
-  }
+var squares = numbers.filter(v => {
+  var root = Math.sqrt(v);
+  return root == Math.floor(root);
 });
 ```
+
+([Run examples above](http://jsbin.com/povipu/edit?js,console));
 
 <h2 name="Classes">Classes</h2>
 
