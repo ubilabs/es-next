@@ -97,6 +97,12 @@ var squares = numbers.filter(v => {
 });
 ```
 
+Parenthesize the body to return an object literal expression:
+
+```js
+var pairs = numbers.map((v, i) => ({value: v, index: i}));
+```
+
 ([Run examples above](http://jsbin.com/povipu/edit?js,console));
 
 <h2 name="Classes">Classes</h2>
