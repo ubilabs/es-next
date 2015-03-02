@@ -34,38 +34,76 @@ ES.next examples for better understanding.
 So for example, this won’t log the name:
 
 ```js
-this.name = 'Peter';
+this.name = 'Jack';
 …
 setTimeout(function(){
   console.log(this.name);
-}, 1000);
+}, 100);
 ```
 
 But with the usage of the ES.next arrows, this will work:
 
 ```js
-this.name = 'Peter';
+this.name = 'Jack';
 …
 setTimeout(() => {
   console.log(this.name);
-}, 1000);
+}, 200);
+```
+
+
+A single expression, however, requires no braces:
+
+```js
+setTimeout(() => console.log(this.name), 300);
+```
+
+Single parameter case needs no parentheses around parameter list.
+
+```js
+let yell = x => x.toUpperCase();
+yell("Avast"); // AVAST
+```
+
+### Short forms
+
+The following functions all do the same.
+
+```js
+function(x)    { return x * x; };  // old school
+        (x) => { return x * x; };  // ES6 arrow function
+         x  => { return x * x; };  // skip parentheses for single args
+         x  =>          x * x;     // skip {return …} for simple calls
 ```
 
 ### Examples
 
 ```js
-var odds = evens.map(v => v + 1);
-var nums = evens.map((v, i) => v + i);
+
+var numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+
+var index = numbers.map((v, i) => i);  // [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+var odds = numbers.filter(v => v % 2); // [1, 3, 5, 7, 9]
+var evens = odds.map(v => v + 1);      // [2, 4, 6, 8, 10]
 ```
+
+Statement body needs braces, must use `return` explicitly if not void:
 
 ```js
 // Statement bodies
-nums.forEach(v => {
-  if (v % 5 === 0) {
-    fives.push(v);
-  }
+var squares = numbers.filter(v => {
+  var root = Math.sqrt(v);
+  return root == Math.floor(root);
 });
 ```
+
+Parenthesize the body to return an object literal expression:
+
+```js
+var pairs = numbers.map((v, i) => ({value: v, index: i}));
+```
+
+([Run examples above](http://jsbin.com/povipu/edit?js,console));
 
 <h2 name="Classes">Classes</h2>
 
@@ -129,7 +167,6 @@ while (rounds--) {
 
 bill.isDrunk(); // returns true
 jack.isDrunk(); // returns false
-
 ```
 
 ([Run code above](http://jsbin.com/xerefo/edit?js,console))
@@ -139,29 +176,37 @@ jack.isDrunk(); // returns false
 Also, there are getters and setters:
 
 ```js
-class Pirate {
-  constructor(name){
-    this.age = 0;
+class Treasure {
+  constructor(){
+    this.coins = 0;
   }
-  get age() {
-    var uncertainty = Math.random() * 10; // you'll never know
-    return this.realAge + Math.round(uncertainty);
+  get weight() {
+    return this.coins * 50;
   }
-  set age(value) {
-    if (value < 0) {
-      throw new Error('Age must be non-negative.')
+  set weight(value) {
+    if (value <= 0) {
+      throw new Error('Avast: weight must be greater than 0!!')
     }
-    this.realAge = value;
+    this.coins = value / 50;
   }
 }
 
-jack = new Pirate();
+var booty = new Treasure();
+console.log(booty.coins, booty.weight); // 0, 0
 
-jack.age = 33;
-jack.age = -10; // throws an error
+booty.coins = 10;
+console.log(booty.weight); // 500 gramm
+
+booty.coins++;
+console.log(booty.weight); // 550 gramm
+
+booty.weight = 2000;
+console.log(booty.coins); // 40 coins
+
+booty.weight = -77; // throws an error
 ```
 
-([Run code above](http://jsbin.com/faqeci/edit?js,console))
+([Run code above](http://jsbin.com/qusafi/edit?js,console))
 
 Classes can have static members. Like other languages with static class members, the static keyword will create a method associated with the class, and not with an instance of the class. In other words, you can only reach a static method using the name of the class. Static methods have no access to the fields, properties, and methods defined on an instance of the class using this.
 
@@ -176,18 +221,16 @@ Classes can have static members. Like other languages with static class members,
 As there is no *sprintf* or something similar, composing strings in ES5 is a bit painful:
 
 ```js
-var name = 'Peter Griffin',
-  greeting = 'Hello ' + name + '! We welcome you to ' +
-    'the next season.';
+var name = 'Jack',
+  greeting = 'Ahoy ' + name + ', welcome on board';
 ```
 
-In ES6, template strings got introduced which allow the usage of variables available in the scope and support strings on multiple lines:
+In ES6, template strings got introduced which allow the usage of template variables (`${variable}`) available in the scope and support strings on multiple lines:
 
 ```js
-var name = 'Peter Griffin',
-  greeting = `
-    Hello ${name}!
-    We welcome you to the next season.
+var name = 'Jack',
+  greeting = `Ahoy ${name},
+    welcome on board!
   `;
 ```
 
@@ -200,53 +243,62 @@ var name = 'Peter Griffin',
 
 ```js
 // Multiline strings
-`In JavaScript this is
- not legal.`
+`In old school JavaScript (ES5) this
+was not valid but works in ES6.
+Make sure to use backticks
+instead of single or double quotes.
+
+Yarr!`
 ```
 
 ```js
 // Interpolate variable bindings
-var name = "Bob", time = "today";
-`Hello ${name}, how are you ${time}?`
+var name = "Jack",
+ drink = "grog",
+ message = `${name} wants another ${drink}!`
 ```
 
 ```js
-// Construct an HTTP request prefix is used to interpret the replacements and construction
-GET`http://foo.org/bar?a=${a}&b=${b}
-    Content-Type: application/json
-    X-Credentials: ${credentials}
-    { "foo": ${foo},
-      "bar": ${bar}}`(myOnReadyStateChangeHandler);
+class Pirate {
+  constructor(name){
+    this.name = name;
+  }
+  yell(){
+    console.log(`I am ${this.name}!`);
+  }
+}
+
+var jack = new Pirate('Bill');
+jack.yell();
+
 ```
+
+([Run examples above](http://jsbin.com/faqeci/edit?js,console))
 
 <h2 name="Default">Default</h2>
 
 Often a parameter in a function has to be defined. To catch not defined parameters, a check is the first thing that happens in a function:
 
 ```js
-function ajax(url) {
-  url = url || 'http://duckduckgo.com';
+function yell(message) {
+  message = message || 'Arrr';
+  console.log(message.toUpperCase() + '!');
 }
-ajax();
+yell();
 ```
 
 In ES.next, it is possible, to define defaults for parameters, so that check is unnecessary:
 
 ```js
-function ajax(url = 'http://duckduckgo.com') {
-  console.log(url); // logs: 'http://duckduckgo.com'
+function yell(message = 'Arrr') {
+  console.log(message.toUpperCase() + '!');
 }
-ajax();
+
+yell(); // "ARRR!"
+yell('Avast'); // AVAST!
 ```
 
-### Examples
-
-```js
-function add(x, y = 12) {
-  return x + y;
-}
-console.log(add(3)); // logs: 15
-```
+([Run example above](http://jsbin.com/wuvoso/edit?js,console))
 
 <h2 name="Destructuring">Destructuring</h2>
 
@@ -279,7 +331,7 @@ function ajax(url, {body='', method='GET'}) {
 This can also be used in assignments:
 
 ```js
-var [a, , b] = [1,2,3];
+var [a, , b] = [1, 2, 3];
 console.log(a, b); // logs: 1, 3
 ```
 
@@ -288,16 +340,16 @@ console.log(a, b); // logs: 1, 3
 ```js
 function getData() {
   return {
-    name: 'Peter',
-    age: 34,
+    name: 'Jack',
+    age: 33,
     location: {
-      city: 'Hamburg',
-      country: 'Germany'
+      region: 'Bermuda',
+      island: 'Isle of Devils'
     }
   }
 }
-var {age, name, location: { city }} = getData();
-console.log(age, name, city); // logs: 34, 'Peter', 'Hamburg'
+var {age, name, location: { region }} = getData();
+console.log(age, name, region); // logs: 33, 'Jack', 'Bermuda'
 ```
 
 ```js
