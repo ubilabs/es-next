@@ -191,19 +191,19 @@ class Treasure {
   }
 }
 
-var treasure = new Treasure();
-console.log(treasure.coins, treasure.weight); // 0, 0
+var booty = new Treasure();
+console.log(booty.coins, booty.weight); // 0, 0
 
-treasure.coins = 10;
-console.log(treasure.weight); // 500 gramm
+booty.coins = 10;
+console.log(booty.weight); // 500 gramm
 
-treasure.coins++;
-console.log(treasure.weight); // 550 gramm
+booty.coins++;
+console.log(booty.weight); // 550 gramm
 
-treasure.weight = 2000;
-console.log(treasure.coins); // 40 coins
+booty.weight = 2000;
+console.log(booty.coins); // 40 coins
 
-treasure.weight = -77; // throws an error
+booty.weight = -77; // throws an error
 ```
 
 ([Run code above](http://jsbin.com/qusafi/edit?js,console))
