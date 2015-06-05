@@ -413,6 +413,12 @@ export function header(){}
 import { header } from ‘header’;
 ```
 
+To just import a module, but not naming it can be done, too:
+
+```js
+import 'picturefill';
+```
+
 ### Examples
 
 ```js
