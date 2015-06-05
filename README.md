@@ -467,7 +467,55 @@ alert("2π = " + exp(pi, e));
 
 <h2 name="Promises">Promises</h2>
 
-### Examples
+To avoid callback hell, Promises are here for a rescue! Instead of passing in a callback to a function, the function returns a Promise instead. A promise then gets resolved or rejected. See this function:
+
+```js
+function loadSomething(url) {
+  return new Promise(function(resolve, reject) {
+    request.get(url, function(error, response, body) {
+      if (error) {
+        return reject(error);
+      }
+      
+      resolve(body);
+    });
+  });
+}
+
+loadSomething('http://ubilabs.net/')
+  .then(function(body) {
+    console.log(body);
+    return loadSomething('http://ubilabs.net/en');
+  })
+  .then(function(body) {
+    console.log(body);
+  })
+  .catch(function(error) {
+    // Catches any error in the calls above
+    console.error(error);
+  });
+```
+
+### Promise.all
+
+The example above executes the `loadSomething` calls one after the other. To execute them in parallel and get all the results, there is `Promise.all`. We have the same `loadSomething` function available as above.
+
+```js
+Promise.all([
+  loadSomething('http://ubilabs.net/'),
+  loadSomething('http://ubilabs.net/en')
+])
+  .then(function(data) {
+    // This is an array with all the data returned by the promises
+    console.log(data);
+  })
+  .catch(function(error) {
+    // Catches any error in the calls above
+    console.error(error);
+  })
+```
+
+There is a small polyfill library called [lie](https://www.npmjs.com/package/lie).
 
 <h2 name="Reflect API">Reflect-API</h2>
 
