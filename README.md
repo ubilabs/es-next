@@ -397,20 +397,24 @@ When exporting a `default`, it can be imported via giving some name on import:
 
 ```js
 // header.js
-export default function header(){}
+export default function(){}
 
 // app.js
 import header from ‘header’;
 ```
 
-But when importing named exports, they have to defined via `{ }`:
+But when importing named exports, they have to defined via `{ }` or can be imported with a wildcard:
 
 ```js
 // header.js
-export function header(){}
+export function init(){}
 
 // app.js
-import { header } from ‘header’;
+import { init } from ‘header’;
+init();
+// or
+import * as header from ‘header’;
+header.init();
 ```
 
 To just import a module, but not naming it can be done, too:
