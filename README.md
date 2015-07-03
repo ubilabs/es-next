@@ -30,7 +30,7 @@ ES.next examples for better understanding.
 - [Tail Calls](#Tail-Calls)
 
 <h2 name="Links">External links</h2>
-[Airbnb JavaScript Style Guide](https://github.com/airbnb/javascript)
+* [Airbnb JavaScript Style Guide](https://github.com/airbnb/javascript) (Very good resource with do's and don'ts and why's)
 
 <h2 name="Arrow-Functions">Arrow Functions</h2>
 
