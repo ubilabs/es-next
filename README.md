@@ -2,6 +2,8 @@
 
 ES.next examples for better understanding.
 
+- [External links](#Links)
+
 - [Arrow Functions](#Arrow-Functions)
 - [Classes](#Classes)
 - [Enhanced Object Literals](#Enhanced-Object-Literals)
@@ -26,6 +28,9 @@ ES.next examples for better understanding.
 - [Promises](#Promises)
 - [Reflect API](#Reflect-API)
 - [Tail Calls](#Tail-Calls)
+
+<h2 name="Links">External links</h2>
+[Airbnb JavaScript Style Guide](https://github.com/airbnb/javascript)
 
 <h2 name="Arrow-Functions">Arrow Functions</h2>
 
@@ -480,7 +485,7 @@ function loadSomething(url) {
       if (error) {
         return reject(error);
       }
-      
+
       resolve(body);
     });
   });
